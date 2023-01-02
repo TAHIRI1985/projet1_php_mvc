@@ -3,7 +3,7 @@
 
 <head>
 
-    <title><?= App\App::getTitle(); ?></title>
+    <title><?= App::getInstance()->title; ?></title>
     <link rel="shartcut icon" sizes="196x196" href="images/type9-removebg-preview.png" type="image/png" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />

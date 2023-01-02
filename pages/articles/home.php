@@ -22,9 +22,9 @@
 
         <?php
 
-        use App\Table\Article;
 
-        foreach (\App\Table\Article::getLast() as $news) :  ?>
+
+        foreach (App::getInstance()->getTable('Article')->last() as $news) :  ?>
 
 
             <fieldset class=" col-ms-12 col-md-5 col-lg-3 ">

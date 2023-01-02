@@ -113,9 +113,9 @@
     <div class="row logo-bijoux">
         <?php
 
-        use App\Table\Categorie;
 
-        foreach (\App\Table\Categorie::all() as $categorie) : ?>
+
+        foreach (App::getInstance()->getTable('Categorie')->all() as $categorie) : ?>
             <div class="col"><a href="<?= $categorie->url ?>">
                     <img src="<?= $categorie->image_Categorie ?>" alt="<?= $categorie->nom_Categorie ?>" width="50" height="50">
                     </br> <?= $categorie->nom_Categorie ?></a></div>
