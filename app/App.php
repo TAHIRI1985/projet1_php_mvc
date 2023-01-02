@@ -1,38 +1,51 @@
 <?php
 
-namespace App;
+
+
+
+
+use Core\Config;
+
+
+use Core\Database\MysqlDatabase;
 
 class App
 {
+    public $title = "Bijoux Siam";
+    private $db_instance;
+    private static $_instance;
 
 
-    const DB_NAME = 'bijoux-siam';
-    const DB_USER = 'root';
-    const DB_PASS = '';
-    const DB_HOST = 'localhost';
-    private static $database;
-    private static $title = 'Bijoux Siam';
-
-    public static function getDb()
+    public static function getInstance()
     {
-        if (self::$database === null) {
-            self::$database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
+        if (is_null(self::$_instance)) {
+            self::$_instance = new App();
         }
-        return self::$database;
+        return self::$_instance;
+    }
+    public static function load()
+    {
+        session_start();
+
+        require  ROOT . '/app/Autoloader.php';
+        APP\Autoloader::register();
+
+        require ROOT . '/core/Autoloader.php';
+        core\Autoloader::register();
     }
 
+    public  function getTable($name)
+    {
+        $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
+        return new $class_name($this->getDb());
+    }
 
-    public static function notFound()
+    public function getDb()
     {
-        header("HTTP/1.0 4004 Not Found");
-        header('location:index.php?p=404');
-    }
-    public static function getTitle()
-    {
-        return self::$title;
-    }
-    public static function setTitle($title)
-    {
-        self::$title = self::$title . ':' .    $title;
+        $config = config::getInstance(ROOT . '/config/config.php');
+        if (is_null($this->db_instance)) {
+            $this->db_instance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
+        }
+        return $this->db_instance;
     }
 }
