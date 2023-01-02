@@ -1,16 +1,10 @@
 <?php
+$app = App::getInstance();
 
-use App\Table\Categorie;
-use App\Table\Article;
-use App\App;
-// $post = App\App::getDb()->prepare('SELECT*FROM articles WHERE id= ?', [$_GET['id']], 'App\Table\Article', true);
-// if ($post === false) {
-//     App\App::notFound();
-// }
+$post = $app->getTable('Article')->find($_GET['id']);
+if ($post == false) {
 
-$post = Article::find($_GET['id']);
-if ($post === false) {
-    App::notFound();
+    $app->notFound();
 }
 
 ?>

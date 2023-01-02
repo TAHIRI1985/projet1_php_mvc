@@ -10,7 +10,7 @@ class ArticleEntity extends Entity
 
     public function getUrl()
     {
-        return 'index.php?p=article&id=' . $this->id;
+        return 'index.php?p=posts.article&id=' . $this->id;
     }
     public function getImage1()
     {

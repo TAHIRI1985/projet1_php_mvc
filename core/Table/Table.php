@@ -23,6 +23,14 @@ class Table
     {
         return  $this->query('SELECT *  FROM '  . $this->table);
     }
+    public function find($id)
+    {
+        return $this->query("SELECT *FROM  {$this->table}  WHERE id =?", [$id], true);
+    }
+
+
+
+
     public function query($statement, $attributes = null, $one = false)
     {
         if ($attributes) {

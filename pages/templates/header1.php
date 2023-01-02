@@ -23,22 +23,22 @@
                                 <b>Bijoux</b>
                             </a>
                             <ul class="dropdown-menu bBijoux">
-                                <li><a class="dropdown-item" href="index.php?p=categorie&id=1">Collier</a></li>
+                                <li><a class="dropdown-item" href="index.php?p=posts.categorie&id=1">Collier</a></li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?p=categorie&id=4">Bague</a>
+                                    <a class="dropdown-item" href="index.php?p=posts.categorie&id=4">Bague</a>
                                 </li>
 
                                 <li>
-                                    <a class="dropdown-item" href="index.php?p=categorie&id=2">B.d'orielle</a>
+                                    <a class="dropdown-item" href="index.php?p=posts.categorie&id=2">B.d'orielle</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?p=categorie&id=3">Bracelet</a>
+                                    <a class="dropdown-item" href="index.php?p=posts.categorie&id=3">Bracelet</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?p=categorie&id=6">Montre</a>
+                                    <a class="dropdown-item" href="index.php?p=posts.categorie&id=6">Montre</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="index.php?p=categorie&id=5">B.cheville</a>
+                                    <a class="dropdown-item" href="index.php?p=posts.categorie&id=5">B.cheville</a>
                                 </li>
 
 

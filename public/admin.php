@@ -1,4 +1,10 @@
 <?php
+
+use \Core\Auth\DbAuth;
+
+
+
+
 define('ROOT', dirname(__DIR__));
 
 require ROOT . '/app/App.php';
@@ -11,18 +17,21 @@ if (isset($_GET['p'])) {
     $page = 'home';
 }
 
-
-
+$app = App::getInstance();
+$auth = new DbAuth($app->getDb());
+if (!$auth->logged()) {
+    $app->forbidden();
+}
 
 
 ob_start();
 if ($page === 'home') {
 
-    require   ROOT . '/pages/posts/home.php';
+    require   ROOT . '/pages/admin/posts/index.php';
 } elseif ($page === 'posts.article') {
-    require ROOT . '/pages/posts/article.php';
+    require ROOT . '/pages/admin/posts/article.php';
 } elseif ($page === 'posts.categorie') {
-    require ROOT . '/pages/posts/categorie.php';
+    require ROOT . '/pages/admin/posts/categorie.php';
 } elseif ($page === '404') {
     require  ROOT . '/pages/posts/not_found.php';
 }
