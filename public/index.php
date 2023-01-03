@@ -23,6 +23,8 @@ if ($page === 'home') {
     require ROOT . '/pages/posts/article.php';
 } elseif ($page === 'posts.categorie') {
     require ROOT . '/pages/posts/categorie.php';
+} elseif ($page === 'login') {
+    require ROOT . '/pages/users/login.php';
 } elseif ($page === '404') {
     require  ROOT . '/pages/posts/not_found.php';
 }
