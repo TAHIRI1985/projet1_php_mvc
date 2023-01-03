@@ -13,10 +13,11 @@ class BootstrapForm extends Form
 
 
 
-    public function input($name)
+    public function input($name, $label, $options = [])
     {
+        $type = isset($options['type']) ? $options['type'] : 'text';
         return $this->surround(
-            '<label>' . $name . '<label> <input type="text"  name=  " ' . $name . '" value=""/>'
+            '<label>' . $label . '<label> <input typ="' . $type . '" name"' . $name . '"  value="' . $this->getValue($name) . '">'
         );
     }
 

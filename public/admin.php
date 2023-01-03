@@ -32,6 +32,8 @@ if ($page === 'home') {
     require ROOT . '/pages/admin/posts/article.php';
 } elseif ($page === 'posts.categorie') {
     require ROOT . '/pages/admin/posts/categorie.php';
+} elseif ($page === 'posts.edit') {
+    require ROOT . '/pages/admin/posts/edit.php';
 } elseif ($page === '404') {
     require  ROOT . '/pages/posts/not_found.php';
 }

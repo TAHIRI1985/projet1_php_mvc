@@ -14,9 +14,27 @@ class DbAuth
         $this->db = $db;
     }
 
-    public function login($psudo_Client, $pass_Client)
+    public function getUserId()
     {
-        $user = $this->db->prepare("SELECT * FROM clients WHERE psudo_Client=?", [$psudo_Client], null, true);
+        if ($this->logged()) {
+            return $_SESSION['auth'];
+        } else {
+            return false;
+        }
+    }
+
+
+    public function login($pseudo_Client, $pass_Client)
+    {
+        $user = $this->db->prepare('SELECT * FROM clients WHERE pseudo_Client=?', [$pseudo_Client], null, true);
+        if ($user) {
+            if ($user->pass_Client === sha1($pass_Client)) {
+                $_SESSION['auth'] = $user->id;
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 
 

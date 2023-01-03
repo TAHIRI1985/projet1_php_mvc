@@ -13,19 +13,20 @@ class Form
     {
         $this->data = $data;
     }
-    private function getValue($index)
+    protected function getValue($index)
     {
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 
-    private function surround($html)
+    protected function surround($html)
     {
         return "<{$this->surround}>{$html}</{$this->surround}>";
     }
 
-    public function input($name)
+    public function input($name, $label, $options = [])
     {
-        return $this->surround('<input typ="text" name"' . $name . '"  value="' . $this->getValue($name) . '">');
+        $type = isset($options['type']) ? $options['type'] : 'text';
+        return $this->surround('<input typ="' . $type . '" name"' . $name . '"  value="' . $this->getValue($name) . '">');
     }
 
 
