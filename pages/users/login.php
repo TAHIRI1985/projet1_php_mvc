@@ -30,7 +30,17 @@ $form = new \Core\HTML\BootstrapForm($_POST);
             <input type="password" name="pass_Client" id="disabledTextInput" class="form-control" placeholder="Entrez votre mot de passe" required minlength>
         </div>
 
-        <button type="submit" class="btn btn-primary">Connecté</button>
+        <button type="submit" class="btn btn-primary">Connexion</button>
+        <p></p><br>
+        <p></p>
+        <H6> Vous navez pas un compte ?</H6>
+
+        <a href="#" class="class btn btn-secondary créer ">Créer un compte</a>
+
     </fieldset>
 </form>
-<style></style>
+<style>
+    a.créer {
+        margin-bottom: 100px;
+    }
+</style>

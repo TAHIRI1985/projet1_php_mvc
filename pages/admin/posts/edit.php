@@ -1,36 +1,62 @@
 <?php
+$postTable = APP::getInstance()->getTable('Article');
+
 if (!empty($_POST)) {
-    $auth = new \Core\Auth\DbAuth(App::getInstance()->getDb());
-    if ($auth->login($_POST['pseudo_Client'], $_POST['pass_Client'])) {
-        header('location:admin.php');
-    } else {
+
+
+    $result = $postTable->update(
+        $_GET['id'],
+
+        [
+            'nom_Article' => $_POST['nom_Article'],
+            'image1_Article' => $_POST['image1_Article']
+        ]
+    );
+
+    if ($resul) {
 ?>
-        <div class="class alert alert-danger">Identifiants incorrect</div>
+        <div class=" alert alert-success"> L'article à bien été ajouté</div>
+
 <?php
+
     }
 }
 
-$form = new \Core\HTML\BootstrapForm($_POST);
-
-
-
+$post = $postTable->find($_GET['id']);
+$form = new \Core\HTML\BootstrapForm($post);
 
 ?>
 
-<form method=post>
-    <fieldset>
-        <img src="images/admin.png" width="100" height="100" alt=" ">
-        <legend>Se connecter</legend>
-        <div class="mb-3">
-            <label class="form-label">Pseudo</label>
-            <input type="text" name="pseudo_Client" id="disabledTextInput" class="form-control" placeholder="Entrez votre pseudo" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Mot de passe</label>
-            <input type="password" name="pass_Client" id="disabledTextInput" class="form-control" placeholder="Entrez votre mot de passe" required minlength>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Connecté</button>
-    </fieldset>
-</form>
-<style></style>
+<div class="container">
+    <form method="post">
+        <fieldset>
+
+
+            <legend>Modifier l'article</legend>
+            <div class="mb-3">
+
+                <?= $form->input('nom_Article', 'Titre de l\'article'); ?>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Modifier l'image</label>
+                <div class="btn light-blue">
+                    <input type="file" name="image1_Article">
+                </div>
+                <div class="file-path-wrapper">
+                    <input type="text" class="file-path validate" readonly>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Souvegarder</button>
+
+
+        </fieldset>
+    </form>
+
+</div>
+<style>
+    div.fildset {
+        text-align: center;
+    }
+</style>

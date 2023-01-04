@@ -53,7 +53,7 @@
                     <div class="conn">
                         <ul>
                             <li>
-                                <a class="connecte" href="#">Se connecte</a>
+                                <a class="connecte" href="index.php?p=login">Se connecte</a>
                             </li>
                             <li>
                                 <a class="connecte" href="#">Créer un compte</a>

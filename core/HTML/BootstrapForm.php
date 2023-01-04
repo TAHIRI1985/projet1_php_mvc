@@ -16,9 +16,9 @@ class BootstrapForm extends Form
     public function input($name, $label, $options = [])
     {
         $type = isset($options['type']) ? $options['type'] : 'text';
-        return $this->surround(
-            '<label>' . $label . '<label> <input typ="' . $type . '" name"' . $name . '"  value="' . $this->getValue($name) . '">'
-        );
+        $label = '<label >  ' . $label . '</label>';
+        $input = '<input typ="' . $type . '"    name"' . $name . '"  class="form-control" value="' . $this->getValue($name) . '">';
+        return $this->surround($label . $input);
     }
 
     public function submit()
