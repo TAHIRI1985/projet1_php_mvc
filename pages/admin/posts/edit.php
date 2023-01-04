@@ -36,7 +36,19 @@ $form = new \Core\HTML\BootstrapForm($post);
             <legend>Modifier l'article</legend>
             <div class="mb-3">
 
-                <?= $form->input('nom_Article', 'Titre de l\'article'); ?>
+                <?= $form->input('nom_Article', 'Titre '); ?>
+            </div>
+            <div class="mb-3">
+
+                <?= $form->input('description_Article', 'Description '); ?>
+            </div>
+            <div class="mb-3">
+
+                <?= $form->input('prix_Article', 'Description '); ?>
+            </div>
+            <div class="mb-3">
+
+                <?= $form->input('image1_Article', 'Description '); ?>
             </div>
             <div class="mb-3">
                 <label class="form-label">Modifier l'image</label>

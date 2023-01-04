@@ -72,9 +72,9 @@ class MysqlDatabase extends Database
         $req = $this->getPDO()->prepare($statement);
         $res = $req->execute($attributes);
         if (
-            strpos($statement, 'UPDATE') === 0 ||
-            strpos($statement, 'INSERT') === 0 ||
-            strpos($statement, 'DELETE') === 0
+            strpos($statement, "UPDATE") === 0 ||
+            strpos($statement, "INSERT") === 0 ||
+            strpos($statement, "DELETE") === 0
         ) {
             return $res;
         }
