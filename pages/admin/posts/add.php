@@ -4,9 +4,7 @@ $postTable = APP::getInstance()->getTable('Article');
 if (!empty($_POST)) {
 
 
-    $result = $postTable->update(
-        $_GET['id'],
-
+    $result = $postTable->create(
 
         [
             'nom_Article' => $_POST['nom_Article'],
@@ -20,19 +18,15 @@ if (!empty($_POST)) {
     );
 
     if ($result) {
-?>
-        <div class=" alert alert-success"> L'article à bien été ajouté</div>
-
-<?php
-
+        header('location:admin.php?p=posts.edit&id=' . App::getInstance()->getPDO()->lastInsertId());
     }
 }
 
 
 
-$post = $postTable->find($_GET['id']);
+
 $categories = App::getInstance()->getTable('Categorie')->extract('id', 'nom_Categorie');
-$form = new \Core\HTML\BootstrapForm($post);
+$form = new \Core\HTML\BootstrapForm($_POST);
 
 ?>
 

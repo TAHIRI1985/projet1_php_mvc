@@ -17,9 +17,10 @@ class Form
     {
         if (is_object($this->data)) {
             return $this->data->$index;
-        }
+        } else {
 
-        return isset($this->data[$index]) ? $this->data[$index] : null;
+            return isset($this->data[$index]) ? $this->data[$index] : null;
+        }
     }
 
     protected function surround($html)
@@ -30,7 +31,9 @@ class Form
     public function input($name, $label, $options = [])
     {
         $type = isset($options['type']) ? $options['type'] : 'text';
-        return $this->surround('<input typ="' . $type . '" name"' . $name . '"  value="' . $this->getValue($name) . '">');
+        $label = '<label >' . $label . '</label>';
+        $input = '<input type="' . $type . '" name"' . $name . '"  value="' . $this->getValue($name) . '">';
+        return $this->surround($label . $input);
     }
 
 

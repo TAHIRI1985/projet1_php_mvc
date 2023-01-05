@@ -2,13 +2,13 @@
 
 namespace Core\Table;
 
-use Core\Database\Database;
+use Core\Database\MysqlDatabase;
 
 class Table
 {
     protected $table;
     protected $db;
-    public function __construct(Database $db)
+    public function __construct(MysqlDatabase $db)
     {
         $this->db = $db;
         if (is_null($this->table)) {
@@ -25,7 +25,7 @@ class Table
     }
     public function find($id)
     {
-        return $this->query("SELECT *FROM  {$this->table}  WHERE id =?", [$id], true);
+        return $this->query("SELECT *FROM  {$this->table} WHERE id =?", [$id], true);
     }
     public function update($id, $fields)
     {
@@ -35,14 +35,43 @@ class Table
             $sql_parts[] = "$k=?";
             $attributes[] = $v;
         }
+
         $attributes[] = $id;
-        $sql_part = implode(',', $sql_parts);
+        $sql_Part = (implode(',', $sql_parts));
 
 
-        return $this->query("UPDATE  {$this->table} SET $sql_part, WHERE id = ?", $attributes, true);
+
+        return $this->query("UPDATE  $this->table  SET  $sql_Part  WHERE id = ? ", $attributes, true);
     }
+    public function create($fields)
+    {
+        $sql_parts = [];
+        $attributes = [];
+        foreach ($fields as $k => $v) {
+            $sql_parts[] = "$k=?";
+            $attributes[] = $v;
+        }
 
 
+        $sql_Part = (implode(',', $sql_parts));
+
+
+        return $this->query("INSERT INTO { $this->table}  SET  $sql_Part  ", $attributes, true);
+    }
+    public function delete($id)
+    {
+
+        return $this->query("DELETE { $this->table}  WHERE id = ?", [$id], true);
+    }
+    public function extract($key, $value)
+    {
+        $records = $this->all();
+        $return = [];
+        foreach ($records as $v) {
+            $return[$v->$key] = $v->$value;
+        }
+        return $return;
+    }
 
 
     public function query($statement, $attributes = null, $one = false)

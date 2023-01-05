@@ -22,7 +22,7 @@ class ArticleTable extends Table
    "
         );
     }
-    public function find($id)
+    public function findWithCategory($id)
     {
         return $this->query(
             "SELECT articles.id , articles.nom_Article, articles.description_Article,articles.image1_Article,
