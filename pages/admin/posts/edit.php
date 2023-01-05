@@ -21,7 +21,7 @@ if (!empty($_POST)) {
 
     if ($result) {
 ?>
-        <div class=" alert alert-success"> L'article à bien été ajouté</div>
+        <div class=" alert alert-success"> L'article à bien été modifièr</div>
 
 <?php
 

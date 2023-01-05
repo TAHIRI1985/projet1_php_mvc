@@ -41,7 +41,7 @@ class Table
 
 
 
-        return $this->query("UPDATE  $this->table  SET  $sql_Part  WHERE id = ? ", $attributes, true);
+        return $this->query("UPDATE  $this->table SET  $sql_Part  WHERE id = ?", $attributes, true);
     }
     public function create($fields)
     {
@@ -56,12 +56,12 @@ class Table
         $sql_Part = (implode(',', $sql_parts));
 
 
-        return $this->query("INSERT INTO { $this->table}  SET  $sql_Part  ", $attributes, true);
+        return $this->query("INSERT INTO $this->table SET  $sql_Part  ", $attributes, true);
     }
     public function delete($id)
     {
 
-        return $this->query("DELETE { $this->table}  WHERE id = ?", [$id], true);
+        return $this->query("DELETE  $this->table  WHERE id = ?", [$id], true);
     }
     public function extract($key, $value)
     {
