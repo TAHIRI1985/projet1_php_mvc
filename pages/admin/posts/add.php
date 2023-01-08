@@ -33,19 +33,39 @@ $form = new \Core\HTML\BootstrapForm($_POST);
 
 
 <form method="post">
-    <h1>Modifier l'article</h1>
+    <h1>Ajouter l'article</h1>
 
-    <?= $form->input('nom_Article', 'Titre '); ?>
-    <?= $form->input('Quantité', 'Quantité '); ?>
+    <form method=post>
+        <fieldset>
 
-    <?= $form->input('description_Article', 'Description '); ?>
+            <div class="mb-3">
+                <label class="form-label">Titre</label>
+                <input type="text" name="nom_Article" id="disabledTextInput" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Quantité</label>
+                <input type="number" name="Quantité" id="disabledTextInput" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" name="description_Article" id="disabledTextInput" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Prix</label>
+                <input type="text" name="prix_Article" id="disabledTextInput" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Image1</label>
+                <input type="file" name="image1_Article" id="disabledTextInput" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Image2</label>
+                <input type="file" name="image2_Article" id="disabledTextInput" class="form-control" required>
+            </div>
+            <?= $form->select('id_categories', 'Catégorie ', $categories); ?>
+            <button type="submit" class="btn btn-primary">Publier</button>
 
-    <?= $form->input('prix_Article', 'Prix '); ?>
-    <?= $form->input('image1_Article', 'Image1 ', ['type' => 'file']); ?>
-    <?= $form->input('image2_Article', 'Image2 ', ['type' => 'file']); ?>
-    <?= $form->select('id_categories', 'Catégorie ', $categories); ?>
-
-
-    <button type="submit" class="btn btn-primary" name="edit_submit">Confirmer</button>
+        </fieldset>
+    </form>
 
 </form>

@@ -54,7 +54,7 @@ $posts = App::getInstance()->getTable('Article')->all();
                     <a href="?p=posts.edit&id=<?= $post->id; ?>" class="btn btn-primary">Editer</a>
                     <form action="?p=posts.delete" method="post" style="display : inline-block">
                         <input type="hidden" name="id" value="<?= $post->id; ?>">
-                        <button type="submit" href="?p=posts.delete&id=<?= $post->id; ?>" class="btn btn-danger">Supprimer</button>
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
 
 
