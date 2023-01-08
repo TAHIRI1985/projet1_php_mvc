@@ -46,15 +46,15 @@ $posts = App::getInstance()->getTable('Article')->all();
                 <td>
                     <?= $post->prix_Article; ?>
                 </td>
-                <td><img src="<?= $post->image1_Article ?>" width="100" height="100" alt=""></td>
-                <td><img src="<?= $post->image2_Article ?>" width="100" height="100" alt=""></td>
+                <td><img src="images/<?= $post->image1_Article ?>" width="100" height="100" alt=""></td>
+                <td><img src="images/<?= $post->image2_Article ?>" width="100" height="100" alt=""></td>
 
 
                 <td>
                     <a href="?p=posts.edit&id=<?= $post->id; ?>" class="btn btn-primary">Editer</a>
                     <form action="?p=posts.delete" method="post" style="display : inline-block">
                         <input type="hidden" name="id" value="<?= $post->id; ?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                        <button type="submit" class="btn btn-danger" href="?p=posts.delete&id=<?= $post->id; ?>">Supprimer</button>
                     </form>
 
 

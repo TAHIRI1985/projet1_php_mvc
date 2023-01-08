@@ -56,12 +56,12 @@ class Table
         $sql_Part = (implode(',', $sql_parts));
 
 
-        return $this->query("INSERT INTO {$this->table} SET  $sql_Part  ", $attributes, true);
+        return $this->query("INSERT INTO {$this->table} SET  $sql_Part ", $attributes, true);
     }
     public function delete($id)
     {
 
-        return $this->query("DELETE  {$this->table}  WHERE id = ?", [$id], true);
+        return $this->query("DELETE FROM {$this->table} WHERE id =? ", [$id], true);
     }
     public function extract($key, $value)
     {

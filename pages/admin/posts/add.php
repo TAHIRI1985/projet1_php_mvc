@@ -18,7 +18,7 @@ if (!empty($_POST)) {
     );
 
     if ($result) {
-        header('location:admin.php?p=posts.edit&id=' . App::getInstance()->getPDO()->lastInsertId());
+        header('location:admin.php?p=posts.edit&id=' . App::getInstance()->getDb()->lastInsertId());
     }
 }
 

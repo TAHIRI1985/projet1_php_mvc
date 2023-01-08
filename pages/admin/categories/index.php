@@ -31,7 +31,7 @@ $categories = App::getInstance()->getTable('Categorie')->all();
                 <td>
                     <?= $categorie->nom_Categorie; ?>
                 </td>
-                <td><img src="<?= $categorie->image_Categorie ?>" width="100" height="100" alt=""></td>
+                <td><img src="images/<?= $categorie->image_Categorie ?>" width="100" height="100" alt=""></td>
 
                 <td>
                     <a href="?p=categories.edit&id=<?= $categorie->id; ?>" class="btn btn-primary">Editer</a>

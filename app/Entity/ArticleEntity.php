@@ -14,11 +14,11 @@ class ArticleEntity extends Entity
     }
     public function getImage1()
     {
-        return 'src=' . "$this->image1_Article";
+        return 'src=' . 'images/' . "$this->image1_Article";
     }
     public function getImage2()
     {
-        return 'src=' . "$this->image2_Article";
+        return 'src=' . 'images/' . "$this->image2_Article";
     }
     public function getDescription()
     {
