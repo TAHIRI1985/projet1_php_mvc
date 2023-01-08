@@ -9,7 +9,8 @@ if (!empty($_POST)) {
 
 
         [
-            'nom_Article' => $_POST['nom_Categorie'],
+
+            'nom_Categorie' => $_POST['nom_Categorie'],
             'image_Categorie' => $_POST['image_Categorie'],
 
         ]
@@ -35,14 +36,22 @@ $form = new \Core\HTML\BootstrapForm($categorie);
 
 <form method="post">
     <h4>Modifièr la catégorie</h4>
+    <fieldset>
 
-    <?= $form->input('nom_Categorie', 'Titre '); ?>
+        <div class="mb-3">
+            <label class="form-label">Titre</label>
+            <input type="text" name="nom_Categorie" id="disabledTextInput" value="<?= $categorie->nom_Categorie  ?>" class="form-control">
+        </div>
 
 
-    <?= $form->input('image_Categorie', 'Image ', ['type' => 'file']); ?>
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input type="file" name="image_Categorie" id="disabledTextInput" value="<?= $categorie->image_Categorie  ?>" class="form-control" required>
+        </div>
 
+        <button type="submit" class="btn btn-primary">Confirmer</button>
 
+    </fieldset>
 
-    <button type="submit" class="btn btn-primary" name="edit_submit">Confirmer</button>
 
 </form>

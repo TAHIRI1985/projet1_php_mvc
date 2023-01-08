@@ -37,7 +37,7 @@ $categories = App::getInstance()->getTable('Categorie')->all();
                     <a href="?p=categories.edit&id=<?= $categorie->id; ?>" class="btn btn-primary">Editer</a>
                     <form action="?p=categories.delete" method="post" style="display : inline-block">
                         <input type="hidden" name="id" value="<?= $categorie->id; ?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                        <button type="submit" class="btn btn-danger" href="?p=categories.edit&id=<?= $categorie->id; ?>">Supprimer</button>
                     </form>
                 </td>
 

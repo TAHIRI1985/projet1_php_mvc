@@ -7,6 +7,7 @@ if (!empty($_POST)) {
     $result = $postTable->create(
 
         [
+            'id' => $_POST['id'],
             'nom_Article' => $_POST['nom_Article'],
             'Quantité' => $_POST['Quantité'],
             'description_Article' => $_POST['description_Article'],
@@ -36,6 +37,10 @@ $form = new \Core\HTML\BootstrapForm($_POST);
 
 <form method=post>
     <fieldset>
+        <div class="mb-3">
+            <label class="form-label">IdArticle</label>
+            <input type="text" name="id" id="disabledTextInput" class="form-control">
+        </div>
 
         <div class="mb-3">
             <label class="form-label">Titre</label>
